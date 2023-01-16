@@ -1,0 +1,127 @@
+.hero {
+  min-height: 100vh;
+  &__container {
+    width: 95%;
+    margin: auto;
+    color: #fff !important;
+  }
+  &__text {
+    position: absolute;
+    top: 30%;
+    @include rwd(
+      width,
+      90%,
+      (
+        $md: 70%,
+        $lg: 60%,
+        $xl: 50%,
+        $xxl: 40%,
+      )
+    );
+  }
+  &__buttons {
+    &--play {
+      font-size: 1.5rem;
+      border-radius: 6px;
+      background-color: #fff;
+      padding: 12px 30px;
+      border: 0;
+      @include rwd(
+        font-size,
+        1.2rem,
+        (
+          $md: 1.3rem,
+          $lg: 1.4rem,
+          $xl: 1.4rem,
+          $xxl: 1.5rem,
+        )
+      );
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.65);
+      }
+    }
+    &--info {
+      font-size: 1.5rem;
+      border-radius: 6px;
+      background-color: rgba(109, 109, 110, 0.7);
+      color: white;
+      padding: 12px 30px;
+      border: 0;
+      @include rwd(
+        font-size,
+        1.2rem,
+        (
+          $md: 1.3rem,
+          $lg: 1.4rem,
+          $xl: 1.4rem,
+          $xxl: 1.5rem,
+        )
+      );
+      &:hover {
+        background-color: rgba(109, 109, 110, 0.568);
+      }
+    }
+  }
+
+  &__nav {
+    & a {
+      color: #fff !important;
+      font-weight: 400;
+      &:hover {
+        color: rgb(194, 194, 194) !important;
+      }
+    }
+    & input {
+      background-color: #141414;
+      color: #fff !important;
+      border: 0px solid #fff;
+      width: 0px;
+      padding: 10px 15px !important;
+      transition: ease-in-out 0.5s;
+      border-radius: 0;
+      &:focus {
+        background-color: $netflix-black-bg;
+        border: 1px solid #fff;
+        width: 250px;
+        padding: 10px 30px !important;
+      }
+      &:focus ~ .close-icon {
+        display: block;
+      }
+    }
+    & .search-icon {
+      color: #fff !important;
+      position: absolute;
+      left: 5px;
+      pointer-events: none;
+      stroke-width: 2.25;
+    }
+    & .close-icon {
+      color: #fff !important;
+      position: absolute;
+      right: 15px;
+      pointer-events: none;
+      stroke-width: 2.25;
+      display: none;
+    }
+    & .dropdown-menu {
+      background-color: $netflix-black-bg;
+      width: 200px !important;
+      border-radius: 0;
+      border: 0.5px solid rgb(53, 53, 53);
+    }
+  }
+}
+.homepage {
+  background-color: #141414;
+  color: #fff;
+}
+div.btn.dropdown-toggle:hover .dropdown-menu {
+  display: block !important;
+}
+.navbar-nav .dropdown div.btn:hover > .dropdown-menu {
+  display: block !important;
+}
+.signout-list {
+  border-top: 1px solid rgb(95, 95, 95);
+}

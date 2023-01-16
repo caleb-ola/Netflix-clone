@@ -1,0 +1,116 @@
+$netflix-red: #e50914;
+$netflix-black-bg: rgba(0, 0, 0, 0.75);
+$netflix-black: #000000;
+
+$md: 768px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1400px;
+
+@mixin rwd($propertyName, $defaultValue, $mediaQueries: ()) {
+  #{$propertyName}: #{$defaultValue} !important;
+
+  @each $breakpoint, $value in $mediaQueries {
+    @media (min-width: #{$breakpoint}) {
+      #{$propertyName}: #{$value} !important;
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: $netflix-black;
+}
+input {
+  &:focus {
+    outline-width: 0;
+  }
+}
+
+h1 {
+  @include rwd(
+    font-size,
+    3.5rem,
+    (
+      $md: 3.7rem,
+      $lg: 4.2rem,
+      $xl: 4.5rem,
+      $xxl: 5rem,
+    )
+  );
+  //   font-size: 5.5rem !important;
+  font-weight: 800;
+  line-height: 1;
+}
+h2 {
+  @include rwd(
+    font-size,
+    2.5rem,
+    (
+      $md: 3rem,
+      $lg: 3.5rem,
+      $xl: 4rem,
+      $xxl: 4.5rem,
+    )
+  );
+  font-weight: 700;
+  line-height: 1;
+}
+h3 {
+  @include rwd(
+    font-size,
+    2rem,
+    (
+      $md: 2.5rem,
+      $lg: 3rem,
+      $xl: 3.5rem,
+      $xxl: 4rem,
+    )
+  );
+  font-weight: 600;
+  line-height: 1;
+}
+h4 {
+  font-size: 3rem !important;
+  @include rwd(
+    font-size,
+    1.8rem,
+    (
+      $md: 2rem,
+      $lg: 2.4rem,
+      $xl: 2.8rem,
+      $xxl: 3rem,
+    )
+  );
+  font-weight: 600;
+  line-height: 1;
+}
+h5 {
+  @include rwd(
+    font-size,
+    1.6rem,
+    (
+      $md: 1.7rem,
+      $lg: 1.8rem,
+      $xl: 1.9rem,
+      $xxl: 2rem,
+    )
+  );
+  font-weight: 600;
+  line-height: 1;
+}
+h6 {
+  @include rwd(
+    font-size,
+    1rem,
+    (
+      $md: 1.1rem,
+      $lg: 1.2rem,
+      $xl: 1.3rem,
+      $xxl: 1.5rem,
+    )
+  );
+  font-weight: 600;
+  line-height: 1;
+}
