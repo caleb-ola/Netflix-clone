@@ -12,10 +12,10 @@
       width,
       90%,
       (
-        $md: 70%,
-        $lg: 60%,
-        $xl: 50%,
-        $xxl: 40%,
+        $md: 80%,
+        $lg: 70%,
+        $xl: 60%,
+        $xxl: 50%,
       )
     );
   }
@@ -72,7 +72,7 @@
       }
     }
     & input {
-      background-color: #141414;
+      background-color: transparent;
       color: #fff !important;
       border: 0px solid #fff;
       width: 0px;
@@ -113,7 +113,7 @@
   }
 }
 .homepage {
-  background-color: #141414;
+  background-color: $netflix-home-black;
   color: #fff;
 }
 div.btn.dropdown-toggle:hover .dropdown-menu {
@@ -124,4 +124,107 @@ div.btn.dropdown-toggle:hover .dropdown-menu {
 }
 .signout-list {
   border-top: 1px solid rgb(95, 95, 95);
+}
+
+.sliding {
+  z-index: 9999 !important;
+  margin: auto;
+  margin-top: -140px;
+
+  &__header {
+    width: 95% !important;
+    margin: auto;
+    &--text {
+      z-index: 9999 !important;
+      position: relative;
+    }
+    &--btn {
+      //   width: 100%;
+      z-index: 9999;
+      position: relative;
+      cursor: pointer;
+      & i {
+        display: none;
+        color: #54b9c5;
+        font-weight: 800;
+        z-index: 9999;
+        position: relative;
+        // padding-top: 5px;
+      }
+      &-title {
+        opacity: 0;
+        margin-left: -90px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #54b9c5;
+        transition: all 0.6s;
+      }
+      &:hover > .sliding__header--btn-title {
+        display: inline-block;
+        opacity: 1;
+        margin-left: 10px;
+      }
+    }
+    &:hover > &--btn i {
+      display: inline-block;
+    }
+  }
+  .sliding__body {
+    background-color: transparent;
+    margin: auto;
+    position: relative;
+    &--text {
+      z-index: 9999;
+    }
+    &--arrow-right {
+      height: 100%;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.45), transparent);
+      position: absolute;
+      right: 0;
+      top: 0px;
+      width: 100px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & i {
+        position: static;
+        display: none;
+      }
+      &:hover {
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.75), transparent);
+      }
+      &:hover > i {
+        display: block;
+      }
+    }
+    &--arrow-left {
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.45), transparent);
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 100px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      & i {
+        position: static;
+        display: none;
+      }
+      &:hover {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.75), transparent);
+      }
+      &:hover > i {
+        display: block;
+      }
+    }
+  }
+  &__card {
+    &--body {
+      display: none !important;
+    }
+  }
 }

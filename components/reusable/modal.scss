@@ -1,0 +1,196 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.534);
+  &__card {
+    min-height: 100%;
+    background-color: #2f2f2f;
+    &--body {
+      border-radius: 10px;
+      background-color: #2f2f2f;
+      min-height: 100%;
+    }
+    &--percentage {
+      color: #46d369;
+      font-size: 1rem;
+    }
+    &--ratings {
+      font-size: 1rem;
+    }
+    &--year {
+      font-size: 1rem;
+    }
+  }
+  &__details {
+    &--ratings {
+      border: 1px solid grey;
+    }
+    &--info {
+      color: #fff;
+      & span {
+        color: grey;
+      }
+    }
+  }
+  &__tooltip {
+    // background-color: #fff !important;
+    color: #fff !important;
+    border-radius: 0;
+  }
+  &--likes {
+    background-color: $netflix-home-black;
+    border-radius: 50px;
+    position: absolute;
+    display: none;
+    z-index: 100;
+    transition: ease-in-out 1s;
+  }
+  &--button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 42px;
+    max-width: 42px;
+    min-height: 36px;
+    min-width: 36px;
+    background-color: rgba(42, 42, 42, 0.6);
+    border-width: 2px;
+    border-radius: 50px;
+    border: 2px solid hsla(0, 0%, 100%, 0.5);
+    cursor: pointer;
+    z-index: 99;
+
+    &:hover {
+      border: 2px solid #fff !important;
+    }
+    &-inverse:hover > .modal--likes {
+      display: flex;
+      transition: ease-in-out 1s;
+    }
+    &-like {
+      border: 2px solid rgba(255, 255, 255, 0) !important;
+      background-color: $netflix-home-black;
+      max-height: 42px;
+      max-width: 42px;
+      min-height: 40px;
+      min-width: 40px;
+      font-size: 1.3rem;
+      transition: ease-in-out 0.5s;
+      &:hover {
+        border: 2px solid rgba(255, 255, 255, 0) !important;
+        background-color: rgb(70, 69, 69);
+      }
+    }
+  }
+  &__controls {
+    margin: 20px auto;
+    &--play {
+      padding: 5px 30px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-radius: 4px;
+      border: 0;
+      cursor: pointer;
+      z-index: 99;
+    }
+    &--choices {
+      & i {
+        background-color: $netflix-black-bg;
+        border-radius: 50px;
+        border: 2px solid #fff;
+        width: 2rem;
+        height: 2rem;
+        padding: 3px;
+      }
+    }
+  }
+  &__dialog {
+    @include rwd(
+      max-width,
+      95%,
+      (
+        $md: 80%,
+        $lg: 60%,
+        $xl: 55%,
+        $xxl: 48%,
+      )
+    );
+  }
+  &__background {
+    background-color: $netflix-home-black;
+  }
+  &__header {
+    position: relative;
+    background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0),
+      rgba(255, 0, 0, 1)
+    );
+    background-blend-mode: overlay;
+    height: 500px;
+    padding: 0;
+    &--overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(0deg, rgba(20, 20, 20, 1), transparent 50%);
+      width: 100%;
+      height: 100px;
+    }
+    &--close {
+      background-color: $netflix-black;
+      border-radius: 50px;
+      padding: 15px;
+      margin: 20px;
+      top: 15px !important;
+      right: 15px !important;
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+      border: 2px solid transparent;
+      &:focus {
+        border: 2px solid #fff;
+      }
+
+      i {
+        color: #fff;
+      }
+    }
+    &--title {
+      @include rwd(
+        max-width,
+        95%,
+        (
+          $md: 80%,
+          $lg: 65%,
+          $xl: 65%,
+          $xxl: 60%,
+        )
+      );
+    }
+  }
+}
+
+.fa-regular .fa-plus .fa-stack-1x .fa-inverse {
+  background-color: rgba(42, 42, 42, 0.6);
+  &:hover > i.fa-regular.fa-circle.fa-stack-2x {
+    color: rgb(245, 245, 245);
+  }
+}
+
+i.fa-regular.fa-circle.fa-stack-2x {
+  color: rgba(42, 42, 42, 0.6);
+  &:hover > i.fa-regular.fa-circle.fa-stack-2x {
+    color: rgb(245, 245, 245);
+  }
+}
+i.fa-solid.fa-circle.fa-stack-2x {
+  color: rgba(42, 42, 42, 0.6);
+  &:hover > i.fa-regular.fa-circle.fa-stack-2x {
+    color: rgb(245, 245, 245);
+  }
+}
+span.fa-stack {
+  &:hover > i.fa-regular.fa-circle.fa-stack-2x {
+    color: rgb(230, 230, 230);
+  }
+}
+$tooltip-color: black;
+$tooltip-bg: #fff;

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     require("@tabler/core/dist/js/tabler.min.js");
+    // require("bootstrap/dist/js/bootstrap.min.js");
   }, []);
   return <Component {...pageProps} />;
 }

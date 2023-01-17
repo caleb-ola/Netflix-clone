@@ -102,8 +102,8 @@ const AuthHero = () => {
                 alt="Netflix"
                 // layout="responsive"
                 className="d-none d-sm-block img-fluid"
-                width={170}
-                height={42}
+                width={160}
+                height={40}
                 style={{ width: "auto", height: "auto", objectFit: "cover" }}
               />
               <Image
