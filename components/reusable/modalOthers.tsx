@@ -11,12 +11,13 @@ import Card from "./Card";
 //   </Tooltip>
 // );
 
-const Modal: FC<any> = ({ results }) => {
+const ModalOthers: FC<any> = ({ item, results }) => {
+  console.log({ item, results });
   return (
     <>
       <div
         className="modal fade "
-        id="modal-large"
+        id="modal-others"
         tabIndex={-1}
         aria-modal="true"
         role="dialog"
@@ -28,7 +29,7 @@ const Modal: FC<any> = ({ results }) => {
               style={{
                 backgroundImage: `
                 linear-gradient(0deg,#aaa, transparent 100%), url(https://image.tmdb.org/t/p/original${
-                  results && results[9].backdrop_path
+                  item && item.backdrop_path
                 })`,
                 backgroundBlendMode: "overlay",
                 backgroundRepeat: "no-repeat",
@@ -38,7 +39,7 @@ const Modal: FC<any> = ({ results }) => {
             >
               <div className="modal__header--content px-3 px-lg-4">
                 <h4 className="modal__header--title">
-                  {results && results[9].title.toUpperCase()}
+                  {item?.title.toUpperCase()}
                 </h4>
 
                 <button
@@ -108,7 +109,7 @@ const Modal: FC<any> = ({ results }) => {
                 <div className="col-md-6">
                   <div className="d-flex mb-2 mb-lg-3">
                     <div className="mx-1 fw-bold">
-                      {results && results[9].release_date.toUpperCase()}
+                      {item && item.release_date.toUpperCase()}
                     </div>
                     <div className="mx-1 modal__details--ratings px-2 ">
                       18+
@@ -117,7 +118,7 @@ const Modal: FC<any> = ({ results }) => {
                     <div className="mx-1 modal__details--ratings px-2">HD</div>
                   </div>
                   <div className="d-flex mb-2 mb-lg-3 ">
-                    <p className="mb-0">{results && results[9].overview}</p>
+                    <p className="mb-0">{item && item.overview}</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -134,15 +135,13 @@ const Modal: FC<any> = ({ results }) => {
                   <div className="row row-cols-1 row-cols-md-3 g-4">
                     <div className="col">
                       <p className="mb-2 mb-lg-3 modal__details--info">
-                        <span>Vote Average:</span>{" "}
-                        {results && results[9].vote_average}
+                        <span>Vote Average:</span> {item && item.vote_average}
                       </p>
                     </div>
                     <div className="col">
                       {" "}
                       <p className="mb-2 mb-lg-3 modal__details--info">
-                        <span>Vote count:</span>{" "}
-                        {results && results[9].vote_count}
+                        <span>Vote count:</span> {item && item.vote_count}
                       </p>
                     </div>
                   </div>
@@ -153,16 +152,16 @@ const Modal: FC<any> = ({ results }) => {
                   <h6>More like this</h6>
                 </div>
                 <div className="row">
-                  {results.map((item: any) => (
-                    <div className="col-md-6 col-lg-4 py-2" key={item.id}>
-                      <Card item={item} />
+                  {results?.map((ite: any) => (
+                    <div className="col-md-6 col-lg-4 py-2" key={ite.id}>
+                      <Card item={ite} />
                     </div>
                   ))}
                 </div>
               </div>
               <div className="modal__about">
                 <div className="modal__more--header py-2 mt-2 mt-lg-3">
-                  <h6>About {results && results[9].title} </h6>
+                  <h6>About {item && item.title} </h6>
                 </div>
                 <div className="">
                   <p className="mb-0 mb-lg-3 modal__details--info">
@@ -189,4 +188,4 @@ const Modal: FC<any> = ({ results }) => {
   );
 };
 
-export default Modal;
+export default ModalOthers;

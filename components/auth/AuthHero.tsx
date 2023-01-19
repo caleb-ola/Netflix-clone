@@ -82,7 +82,7 @@ const AuthHero = () => {
         `https://api.themoviedb.org/3/authentication/token/new?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         cookies.set("netflix-clone", res.data.request_token);
         router.push("/home");
       })

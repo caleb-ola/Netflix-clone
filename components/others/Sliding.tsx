@@ -31,7 +31,7 @@ function SamplePrevArrow(props: any) {
     </div>
   );
 }
-const Sliding: FC<any> = ({ data, header }) => {
+const Sliding: FC<any> = ({ data, header, modalItem }) => {
   const { results } = data;
 
   const settings = {
@@ -41,22 +41,51 @@ const Sliding: FC<any> = ({ data, header }) => {
     slidesToScroll: 7,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
-    <div className="sliding mb-5 pb-5">
-      <div className="sliding__header d-flex position-relative align-items-center mb-1">
-        <h5 className="sliding__header--text me-2">{header}</h5>
-        <div className="sliding__header--btn">
-          <span className="sliding__header--btn-title ">Explore All</span>
-          <i className="fa-solid fa-chevron-right sliding__header--icon px-1"></i>
-        </div>
-      </div>
-      <div className="sliding__body position-relative pb-5">
+    <div className="sliding ">
+      <div className="sliding__body position-relative">
         <div className="">
+          <div className="sliding__header d-flex  align-items-center mb-1">
+            <h5 className="sliding__header--text me-2">{header}</h5>
+            <div className="sliding__header--btn">
+              <span className="sliding__header--btn-title ">Explore All</span>
+              <i className="fa-solid fa-chevron-right sliding__header--icon px-1"></i>
+            </div>
+          </div>
           <Slider {...settings}>
             {results.map((item: any) => (
-              <div className="p-2" key={item.id}>
-                <SlideCard item={item} />
+              <div className="p-1" key={item.id}>
+                <SlideCard
+                  item={item}
+                  modalItem={modalItem}
+                  results={results}
+                />
               </div>
             ))}
           </Slider>

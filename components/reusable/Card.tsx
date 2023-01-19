@@ -3,7 +3,7 @@ import React from "react";
 
 const Card: React.FC<any> = ({ item }) => {
   return (
-    <div className="card border-0 modal__card ">
+    <div className="card border-0 modal__card position-relative">
       <Image
         src={`https://image.tmdb.org/t/p/original${item && item.backdrop_path}`}
         className="card-img-top"
@@ -16,6 +16,9 @@ const Card: React.FC<any> = ({ item }) => {
         }}
         alt="..."
       />
+      <button className="modal__card--play" type="button" role="button">
+        <i className="fa-solid fa-play fa-inverse ps-1 pt-1"></i>
+      </button>
       <div className="card-body modal__card--body p-2 p-lg-3 h-100">
         <div className="row align-items-center">
           <div className="col">
@@ -31,7 +34,7 @@ const Card: React.FC<any> = ({ item }) => {
               </div>
             </div>
           </div>
-          <div className="col text-end">
+          <div className="col text-end d-flex justify-content-end">
             <button
               className="modal--button text-end  mx-1"
               type="button"

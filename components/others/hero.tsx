@@ -14,7 +14,7 @@ const Hero: FC<any> = ({ data }) => {
       className="hero m-0 me-0 w-100"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original${
-          results && results[14].backdrop_path
+          results && results[9].backdrop_path
         })`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -22,16 +22,15 @@ const Hero: FC<any> = ({ data }) => {
       }}
     >
       <div className="hero__container">
-        <Navbar />
         <div className="hero__text  align-items-center">
           <h2 className="py-2 m-0">
-            {results && results[14].title.toUpperCase()}
+            {results && results[9].title.toUpperCase()}
           </h2>
           <h6 className="py-1 d-none d-sm-block">
             {results &&
-              results[14].overview.substring(
+              results[9].overview.substring(
                 0,
-                results[14].overview.indexOf(".") + 1
+                results[9].overview.indexOf(".") + 1
               )}
           </h6>
           <div className="hero__buttons py-2 py-md-3">
