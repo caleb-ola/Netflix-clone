@@ -167,11 +167,14 @@
       border-radius: 4px;
       font-size: 16px;
       border-width: 0;
-    }
-    &--btn-loading {
-      background-color: #a3030b;
-      color: #fff;
-      border-radius: 4px;
+      & i {
+        font-size: 16px;
+      }
+      &-loading {
+        background-color: #a3030b;
+        color: #fff;
+        border-radius: 4px;
+      }
     }
     &--remember {
       color: #b3b3b3;

@@ -27,7 +27,7 @@ const ModalOthers: FC<any> = ({ item, results }) => {
             <div
               className="modal-header border-0 modal__header align-items-end pb-4"
               style={{
-                backgroundImage: `
+                backgroundImage: (item?.backdrop_path === null) ? "":`
                 linear-gradient(0deg,#aaa, transparent 100%), url(https://image.tmdb.org/t/p/original${
                   item && item.backdrop_path
                 })`,

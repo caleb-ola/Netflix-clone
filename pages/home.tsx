@@ -54,7 +54,7 @@ export async function getServerSideProps() {
     });
   const popular = await axios
     .get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=21`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=2`
     )
     .then((res) => {
       // console.log(res);
@@ -62,7 +62,7 @@ export async function getServerSideProps() {
     });
   const trending = await axios
     .get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=26`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=6`
     )
     .then((res) => {
       // console.log(res);
@@ -70,7 +70,7 @@ export async function getServerSideProps() {
     });
   const blockbuster = await axios
     .get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=27`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=5`
     )
     .then((res) => {
       // console.log(res);
@@ -79,7 +79,7 @@ export async function getServerSideProps() {
 
   const suggestions = await axios
     .get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=29`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=7`
     )
     .then((res) => {
       // console.log(res);

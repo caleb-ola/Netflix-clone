@@ -5,7 +5,7 @@ const Card: React.FC<any> = ({ item }) => {
   return (
     <div className="card border-0 modal__card position-relative">
       <Image
-        src={`https://image.tmdb.org/t/p/original${item && item.backdrop_path}`}
+        src={ (item.backdrop_path === null) ? "":`https://image.tmdb.org/t/p/original${item && item.backdrop_path}`}
         className="card-img-top"
         width={180}
         height={70}

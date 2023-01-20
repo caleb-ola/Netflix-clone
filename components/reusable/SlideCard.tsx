@@ -7,7 +7,7 @@ const SlideCard: FC<any> = ({ item, modalItem, results }) => {
     <>
       <div className="card border-0 sliding__card  sliding__card--clone">
         <Image
-          src={`https://image.tmdb.org/t/p/original${
+          src={(item.backdrop_path === null) ? "":`https://image.tmdb.org/t/p/original${
             item && item.backdrop_path
           }`}
           className="card-img-top"
@@ -106,7 +106,7 @@ const SlideCard: FC<any> = ({ item, modalItem, results }) => {
           {/* {item && item.overview.substring(0, item.overview.indexOf(".") + 1)} */}
           <div className="d-flex my-3 mb-lg-3">
             <div className="mx-1 fw-bold ">
-              <small>{item.release_date.slice(0, 4)}</small>
+              <small>{item.release_date?.slice(0, 4)}</small>
             </div>
             <div className="mx-1 modal__details--ratings px-1 ">
               <small>18+</small>

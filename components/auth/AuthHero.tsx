@@ -28,6 +28,7 @@ const ValidationSchema = Yup.object().shape({
 const AuthHero = () => {
   const cookies = new Cookies();
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const [passwordToggle, setPasswordToggle] = useState<ToggleObject>({
     state: false,
     text: "SHOW",
@@ -77,6 +78,7 @@ const AuthHero = () => {
     // console.log(values);
     // const data = { request_token: requestToken.replace(/["]/g, "") };
     // console.log(data);
+    setLoading(true);
     await axios
       .get(
         `https://api.themoviedb.org/3/authentication/token/new?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -85,6 +87,7 @@ const AuthHero = () => {
         // console.log(res);
         cookies.set("netflix-clone", res.data.request_token);
         router.push("/home");
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -195,12 +198,20 @@ const AuthHero = () => {
                     </span>
                   ) : null}
 
-                  <button
-                    type="submit"
-                    className="w-100 py-3 fw-bold mt-4 mb-2  authcard__card--btn"
-                  >
-                    Sign In
-                  </button>
+                  {loading ? (
+                    <button
+                      type="submit"
+                      className="w-100 py-3 fw-bold mt-4 mb-2  authcard__card--btn-loading"
+                    >
+<i className="fa fa-spinner fa-spin"></i>                 </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="w-100 py-3 fw-bold mt-4 mb-2  authcard__card--btn"
+                    >
+                      Sign In
+                    </button>
+                  )}
                   <div className="authcard__card--remember d-flex justify-content-between">
                     <div className="d-flex">
                       <input
